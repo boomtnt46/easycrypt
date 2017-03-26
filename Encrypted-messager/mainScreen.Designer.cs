@@ -48,6 +48,7 @@
             this.foreignMessage.Name = "foreignMessage";
             this.foreignMessage.Size = new System.Drawing.Size(732, 872);
             this.foreignMessage.TabIndex = 0;
+            this.foreignMessage.TextChanged += new System.EventHandler(this.foreignMessage_TextChanged);
             // 
             // receivedMessage
             // 
@@ -57,6 +58,7 @@
             this.receivedMessage.Name = "receivedMessage";
             this.receivedMessage.Size = new System.Drawing.Size(732, 872);
             this.receivedMessage.TabIndex = 1;
+            this.receivedMessage.TextChanged += new System.EventHandler(this.receivedMessage_TextChanged);
             // 
             // contactsButton
             // 
@@ -78,6 +80,7 @@
             this.decryptButton.TabIndex = 3;
             this.decryptButton.Text = "Decrypt";
             this.decryptButton.UseVisualStyleBackColor = true;
+            this.decryptButton.Click += new System.EventHandler(this.decryptButton_Click);
             // 
             // encryptButton
             // 
@@ -88,27 +91,16 @@
             this.encryptButton.TabIndex = 4;
             this.encryptButton.Text = "Encrypt";
             this.encryptButton.UseVisualStyleBackColor = true;
+            this.encryptButton.Click += new System.EventHandler(this.encryptButton_Click);
             // 
             // contactListSelection
             // 
             this.contactListSelection.FormattingEnabled = true;
-            this.contactListSelection.Items.AddRange(new object[] {
-            "test1",
-            "test2",
-            "test3",
-            "test1",
-            "test2",
-            "test3",
-            "test1",
-            "test2",
-            "test3",
-            "test1",
-            "test2",
-            "test3"});
             this.contactListSelection.Location = new System.Drawing.Point(1526, 9);
             this.contactListSelection.Name = "contactListSelection";
             this.contactListSelection.Size = new System.Drawing.Size(151, 28);
             this.contactListSelection.TabIndex = 5;
+            this.contactListSelection.SelectedIndexChanged += new System.EventHandler(this.contactListSelection_SelectedIndexChanged);
             // 
             // settingsButton
             // 
@@ -119,6 +111,7 @@
             this.settingsButton.TabIndex = 6;
             this.settingsButton.Text = "Settings";
             this.settingsButton.UseVisualStyleBackColor = true;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
             // inboxButton
             // 
@@ -129,6 +122,7 @@
             this.inboxButton.TabIndex = 7;
             this.inboxButton.Text = "Inbox";
             this.inboxButton.UseVisualStyleBackColor = true;
+            this.inboxButton.Click += new System.EventHandler(this.inboxButton_Click);
             // 
             // sentMessagesButton
             // 
@@ -139,6 +133,7 @@
             this.sentMessagesButton.TabIndex = 8;
             this.sentMessagesButton.Text = "Sent messages";
             this.sentMessagesButton.UseVisualStyleBackColor = true;
+            this.sentMessagesButton.Click += new System.EventHandler(this.sentMessagesButton_Click);
             // 
             // aboutButton
             // 
@@ -149,6 +144,7 @@
             this.aboutButton.TabIndex = 9;
             this.aboutButton.Text = "About";
             this.aboutButton.UseVisualStyleBackColor = true;
+            this.aboutButton.Click += new System.EventHandler(this.aboutButton_Click);
             // 
             // MainScreen
             // 

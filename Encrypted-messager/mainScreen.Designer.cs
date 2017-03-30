@@ -129,7 +129,7 @@
             this.sentMessagesButton.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sentMessagesButton.Location = new System.Drawing.Point(1, 217);
             this.sentMessagesButton.Name = "sentMessagesButton";
-            this.sentMessagesButton.Size = new System.Drawing.Size(200, 81);
+            this.sentMessagesButton.Size = new System.Drawing.Size(200, 111);
             this.sentMessagesButton.TabIndex = 8;
             this.sentMessagesButton.Text = "Sent messages";
             this.sentMessagesButton.UseVisualStyleBackColor = true;

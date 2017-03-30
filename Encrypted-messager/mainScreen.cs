@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Reflection;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,14 +23,15 @@ namespace Encrypted_messager
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void contacts_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Contactos aquí");
+            ContactsManagerWindow cmw = new ContactsManagerWindow();
+            cmw.Show();
         }
 
         private void aboutButton_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void sentMessagesButton_Click(object sender, EventArgs e)
@@ -57,7 +59,7 @@ namespace Encrypted_messager
 
         }
 
-        private void receivedMessage_TextChanged(object sender, EventArgs e)
+        public void receivedMessage_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -71,5 +73,6 @@ namespace Encrypted_messager
         {
 
         }
+
     }
 }

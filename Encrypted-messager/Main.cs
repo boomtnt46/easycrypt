@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Forms;
 using Encrypted_messager;
 
-namespace Program
+namespace Encrypted_messager
 {
     class main
     {
@@ -16,6 +16,7 @@ namespace Program
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainScreen());
+
         }
     }
 }

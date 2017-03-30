@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contacts.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="mainScreen.cs">
       <SubType>Form</SubType>
     </Compile>

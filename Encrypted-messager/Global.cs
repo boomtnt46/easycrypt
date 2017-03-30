@@ -13,7 +13,9 @@ namespace Encrypted_messager
             public class Contact
             {
                 public string name { get; set; }
+                public string email { get; set; }
                 public string confidence { get; set; }
+                public string publicKey { get; set; }
             }
 
             public class Confidence

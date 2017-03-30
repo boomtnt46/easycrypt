@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Reflection;
+using static Encrypted_messager.ContactManager;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,9 +14,11 @@ namespace Encrypted_messager
 {
     public partial class MainScreen : Form
     {
+        ContactManager cm = new ContactManager();
         public MainScreen()
         {
             InitializeComponent();
+            contactListSelection.DataSource = cm.contacts;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -71,7 +74,6 @@ namespace Encrypted_messager
 
         private void contactListSelection_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
     }

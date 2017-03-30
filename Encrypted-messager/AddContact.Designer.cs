@@ -30,10 +30,12 @@
         {
             this.closeAddContactWindow = new System.Windows.Forms.Button();
             this.nameLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.name = new System.Windows.Forms.TextBox();
+            this.email = new System.Windows.Forms.TextBox();
             this.emailLabel = new System.Windows.Forms.Label();
             this.selectPublicKey = new System.Windows.Forms.Button();
+            this.confidence = new System.Windows.Forms.ComboBox();
+            this.confidenceLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // closeAddContactWindow
@@ -56,21 +58,21 @@
             this.nameLabel.TabIndex = 1;
             this.nameLabel.Text = "Name:";
             // 
-            // textBox1
+            // name
             // 
-            this.textBox1.Location = new System.Drawing.Point(85, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(398, 30);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.name.Location = new System.Drawing.Point(85, 28);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(398, 30);
+            this.name.TabIndex = 2;
+            this.name.TextChanged += new System.EventHandler(this.name_TextChanged);
             // 
-            // textBox2
+            // email
             // 
-            this.textBox2.Location = new System.Drawing.Point(85, 65);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(398, 30);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.email.Location = new System.Drawing.Point(85, 65);
+            this.email.Name = "email";
+            this.email.Size = new System.Drawing.Size(398, 30);
+            this.email.TabIndex = 3;
+            this.email.TextChanged += new System.EventHandler(this.email_TextChanged);
             // 
             // emailLabel
             // 
@@ -84,7 +86,7 @@
             // 
             // selectPublicKey
             // 
-            this.selectPublicKey.Location = new System.Drawing.Point(85, 101);
+            this.selectPublicKey.Location = new System.Drawing.Point(289, 101);
             this.selectPublicKey.Name = "selectPublicKey";
             this.selectPublicKey.Size = new System.Drawing.Size(186, 30);
             this.selectPublicKey.TabIndex = 5;
@@ -92,16 +94,41 @@
             this.selectPublicKey.UseVisualStyleBackColor = true;
             this.selectPublicKey.Click += new System.EventHandler(this.selectPublicKey_Click);
             // 
+            // confidence
+            // 
+            this.confidence.FormattingEnabled = true;
+            this.confidence.Items.AddRange(new object[] {
+            "Low",
+            "Medium",
+            "High"});
+            this.confidence.Location = new System.Drawing.Point(132, 97);
+            this.confidence.Name = "confidence";
+            this.confidence.Size = new System.Drawing.Size(121, 31);
+            this.confidence.TabIndex = 6;
+            this.confidence.SelectedIndexChanged += new System.EventHandler(this.confidence_SelectedIndexChanged);
+            // 
+            // confidenceLabel
+            // 
+            this.confidenceLabel.AutoSize = true;
+            this.confidenceLabel.ForeColor = System.Drawing.Color.Transparent;
+            this.confidenceLabel.Location = new System.Drawing.Point(12, 100);
+            this.confidenceLabel.Name = "confidenceLabel";
+            this.confidenceLabel.Size = new System.Drawing.Size(114, 23);
+            this.confidenceLabel.TabIndex = 7;
+            this.confidenceLabel.Text = "Confidence:";
+            // 
             // AddContact
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(487, 220);
+            this.Controls.Add(this.confidenceLabel);
+            this.Controls.Add(this.confidence);
             this.Controls.Add(this.selectPublicKey);
             this.Controls.Add(this.emailLabel);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.email);
+            this.Controls.Add(this.name);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.closeAddContactWindow);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -118,9 +145,11 @@
 
         private System.Windows.Forms.Button closeAddContactWindow;
         private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox name;
+        private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.Button selectPublicKey;
+        private System.Windows.Forms.ComboBox confidence;
+        private System.Windows.Forms.Label confidenceLabel;
     }
 }

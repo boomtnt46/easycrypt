@@ -69,7 +69,7 @@
             this.contactsButton.TabIndex = 2;
             this.contactsButton.Text = "Contacts";
             this.contactsButton.UseVisualStyleBackColor = true;
-            this.contactsButton.Click += new System.EventHandler(this.button1_Click);
+            this.contactsButton.Click += new System.EventHandler(this.contacts_Click);
             // 
             // decryptButton
             // 

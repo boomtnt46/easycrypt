@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Reflection;
-//using Encrypted_messager.Contacts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +13,6 @@ namespace Encrypted_messager
 {
     public partial class MainScreen : Form
     {
-        Contacts.Confidence confidence = new Contacts.Confidence();
         public MainScreen()
         {
             InitializeComponent();
@@ -25,9 +23,10 @@ namespace Encrypted_messager
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void contacts_Click(object sender, EventArgs e)
         {
-
+            ContactsManagerWindow cmw = new ContactsManagerWindow();
+            cmw.Show();
         }
 
         private void aboutButton_Click(object sender, EventArgs e)

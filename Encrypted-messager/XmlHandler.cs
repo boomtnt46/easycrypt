@@ -10,11 +10,11 @@ namespace Encrypted_messager
     {
         XmlDocument xmldoc = new XmlDocument();
         XmlElement xmlcontacts;
+        string xmlFilePath = @Path.GetDirectoryName(Application.ExecutablePath) + @"\DATA.xml";
         ContactList contactlist = new ContactList();
 
         public XmlHandler()
         {
-            string xmlFilePath = @Path.GetDirectoryName(Application.ExecutablePath) + @"\DATA.xml";
             if (File.Exists(xmlFilePath))
             {
                 xmldoc.Load(xmlFilePath);
@@ -35,6 +35,7 @@ namespace Encrypted_messager
             contact.SetAttribute("email", email);
             contact.SetAttribute("confidence", confidence);
             contact.AppendChild(xmldoc.CreateElement("pgppublickey")).InnerText = pubkey;
+            xmldoc.Save(xmlFilePath);
         }
 
         public void LoadContactsFromXML()

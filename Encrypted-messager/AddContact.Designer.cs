@@ -36,6 +36,7 @@
             this.selectPublicKey = new System.Windows.Forms.Button();
             this.confidence = new System.Windows.Forms.ComboBox();
             this.confidenceLabel = new System.Windows.Forms.Label();
+            this.filenameOfSelectedFile = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // closeAddContactWindow
@@ -86,7 +87,7 @@
             // 
             // selectPublicKey
             // 
-            this.selectPublicKey.Location = new System.Drawing.Point(289, 101);
+            this.selectPublicKey.Location = new System.Drawing.Point(12, 139);
             this.selectPublicKey.Name = "selectPublicKey";
             this.selectPublicKey.Size = new System.Drawing.Size(186, 30);
             this.selectPublicKey.TabIndex = 5;
@@ -101,7 +102,7 @@
             "Low",
             "Medium",
             "High"});
-            this.confidence.Location = new System.Drawing.Point(132, 97);
+            this.confidence.Location = new System.Drawing.Point(132, 102);
             this.confidence.Name = "confidence";
             this.confidence.Size = new System.Drawing.Size(121, 31);
             this.confidence.TabIndex = 6;
@@ -111,11 +112,22 @@
             // 
             this.confidenceLabel.AutoSize = true;
             this.confidenceLabel.ForeColor = System.Drawing.Color.Transparent;
-            this.confidenceLabel.Location = new System.Drawing.Point(12, 100);
+            this.confidenceLabel.Location = new System.Drawing.Point(12, 105);
             this.confidenceLabel.Name = "confidenceLabel";
             this.confidenceLabel.Size = new System.Drawing.Size(114, 23);
             this.confidenceLabel.TabIndex = 7;
             this.confidenceLabel.Text = "Confidence:";
+            // 
+            // filenameOfSelectedFile
+            // 
+            this.filenameOfSelectedFile.AutoSize = true;
+            this.filenameOfSelectedFile.ForeColor = System.Drawing.Color.Transparent;
+            this.filenameOfSelectedFile.Location = new System.Drawing.Point(219, 143);
+            this.filenameOfSelectedFile.Name = "filenameOfSelectedFile";
+            this.filenameOfSelectedFile.Size = new System.Drawing.Size(145, 23);
+            this.filenameOfSelectedFile.TabIndex = 8;
+            this.filenameOfSelectedFile.Text = "No file selected";
+            this.filenameOfSelectedFile.Click += new System.EventHandler(this.filenameOfSelectedFile_Click);
             // 
             // AddContact
             // 
@@ -123,6 +135,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(487, 220);
+            this.Controls.Add(this.filenameOfSelectedFile);
             this.Controls.Add(this.confidenceLabel);
             this.Controls.Add(this.confidence);
             this.Controls.Add(this.selectPublicKey);
@@ -134,7 +147,8 @@
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "AddContact";
-            this.Text = "AddContact";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Add Contact";
             this.Load += new System.EventHandler(this.AddContact_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -151,5 +165,6 @@
         private System.Windows.Forms.Button selectPublicKey;
         private System.Windows.Forms.ComboBox confidence;
         private System.Windows.Forms.Label confidenceLabel;
+        private System.Windows.Forms.Label filenameOfSelectedFile;
     }
 }

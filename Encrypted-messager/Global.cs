@@ -1,13 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
+using static Encrypted_messager.Global.Contacts;
+using System.Xml;
+using System.ComponentModel;
 
 namespace Encrypted_messager
 {
-    class Global
+    public class Global
     {
+       
         static public class Contacts
         {
             public class Contact
@@ -25,5 +32,17 @@ namespace Encrypted_messager
                 public string high => "high";
             }
         }
+
+        public class ContactList
+        {
+            public BindingList<Contact> contacts = new BindingList<Contact>();
+            
+            public ContactList()
+            {
+                XmlHandler xmlhandler = new XmlHandler();
+                contacts = xmlhandler.LoadContactsFromXML();
+            }
+        }
+
     }
 }

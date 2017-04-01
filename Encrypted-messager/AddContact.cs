@@ -1,20 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.IO;
-using System.Drawing;
 using System.Linq;
-using static Encrypted_messager.ContactManager;
-using System.Text;
-using System.Threading.Tasks;
+using Encrypted_messager;
+using System.IO;
 using System.Windows.Forms;
+using static Encrypted_messager.Global;
 
 namespace Encrypted_messager
 {
     public partial class AddContact : Form
     {
-        ContactManager contactmanager = new ContactManager();
+        OpenFileDialog ofd = new OpenFileDialog();
         public string pubKey;
         public AddContact()
         {
@@ -24,19 +19,20 @@ namespace Encrypted_messager
 
         private void AddContact_Load(object sender, EventArgs e)
         {
-
         }
 
         private void closeAddContactWindow_Click(object sender, EventArgs e)
         {
             if (name.Text != String.Empty && email.Text != String.Empty && pubKey != String.Empty && confidence.SelectedItem != null)
             {
-                contactmanager.contacts.Add(new Global.Contacts.Contact { name = name.Text, email = email.Text, publicKey = pubKey, confidence = confidence.SelectedItem.ToString()});
+                XmlHandler xmlhandler = new XmlHandler();
+                xmlhandler.WriteContactToXML(name.Text, email.Text, confidence.SelectedItem.ToString(), pubKey);
                 this.Close();
+                
             }
             else
             {
-                MessageBox.Show("Fill in everything first please");
+                MessageBox.Show("Fill in everything first please", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -52,7 +48,6 @@ namespace Encrypted_messager
 
         private void selectPublicKey_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "txt files (*.txt)|*.txt|pgp files (*.pgp)|*.pgp|asc files (*.asc)|*.asc";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
@@ -62,11 +57,15 @@ namespace Encrypted_messager
                     pubKey = sr.ReadToEnd();
                 }
             }
-            
-
+            filenameOfSelectedFile.Text = ofd.SafeFileName;
         }
 
         private void confidence_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void filenameOfSelectedFile_Click(object sender, EventArgs e)
         {
 
         }

@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Encrypted_messager.Global;
-using static Encrypted_messager.Global.Contacts;
 
 namespace Encrypted_messager
 {
@@ -45,6 +38,16 @@ namespace Encrypted_messager
         private void RefreshList()
         {
             contactList.DataSource = contactsList.contacts.Select(contacts => contacts.name).ToList();
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Are you sure you want to remove the selected contact?", "Remove contact", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                XmlHandler xmlhandler = new XmlHandler();
+                xmlhandler.DeleteContact(contactList.SelectedItem.ToString());
+
+            }
         }
     }
 

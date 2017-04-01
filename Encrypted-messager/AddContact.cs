@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Linq;
-using Encrypted_messager;
 using System.IO;
 using System.Windows.Forms;
-using static Encrypted_messager.Global;
 
 namespace Encrypted_messager
 {

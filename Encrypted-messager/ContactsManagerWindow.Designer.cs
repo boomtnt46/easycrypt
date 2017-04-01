@@ -32,6 +32,8 @@
             this.contactListLabel = new System.Windows.Forms.Label();
             this.addContact = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // contactList
@@ -39,7 +41,7 @@
             this.contactList.FormattingEnabled = true;
             this.contactList.Location = new System.Drawing.Point(12, 39);
             this.contactList.Name = "contactList";
-            this.contactList.Size = new System.Drawing.Size(297, 31);
+            this.contactList.Size = new System.Drawing.Size(258, 31);
             this.contactList.TabIndex = 0;
             this.contactList.SelectedIndexChanged += new System.EventHandler(this.contactList_SelectedIndexChanged);
             // 
@@ -55,7 +57,7 @@
             // 
             // addContact
             // 
-            this.addContact.Location = new System.Drawing.Point(327, 39);
+            this.addContact.Location = new System.Drawing.Point(16, 76);
             this.addContact.Name = "addContact";
             this.addContact.Size = new System.Drawing.Size(109, 31);
             this.addContact.TabIndex = 2;
@@ -65,7 +67,7 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(352, 535);
+            this.exitButton.Location = new System.Drawing.Point(354, 268);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(84, 33);
             this.exitButton.TabIndex = 3;
@@ -73,12 +75,33 @@
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
+            // editButton
+            // 
+            this.editButton.Location = new System.Drawing.Point(276, 40);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(62, 30);
+            this.editButton.TabIndex = 4;
+            this.editButton.Text = "Edit";
+            this.editButton.UseVisualStyleBackColor = true;
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(344, 40);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(94, 30);
+            this.deleteButton.TabIndex = 5;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
             // ContactsManagerWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(445, 580);
+            this.ClientSize = new System.Drawing.Size(445, 311);
+            this.Controls.Add(this.deleteButton);
+            this.Controls.Add(this.editButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.addContact);
             this.Controls.Add(this.contactListLabel);
@@ -99,5 +122,7 @@
         private System.Windows.Forms.Button addContact;
         public System.Windows.Forms.ComboBox contactList;
         private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.Button deleteButton;
     }
 }

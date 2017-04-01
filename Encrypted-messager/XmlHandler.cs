@@ -1,10 +1,8 @@
-﻿using System.Windows.Forms;
-using System.Xml;
+﻿using System.ComponentModel;
 using System.IO;
-using static Encrypted_messager.Global;
+using System.Windows.Forms;
+using System.Xml;
 using static Encrypted_messager.Global.Contacts;
-using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace Encrypted_messager
 {
@@ -59,6 +57,16 @@ namespace Encrypted_messager
             }
             return list;
 
+        }
+
+        public void DeleteContact(string ContactToRemove)
+        {
+            XmlNode xmlnode = xmldoc.GetElementsByTagName("Contacts")[0];
+            xmlnode.RemoveChild(xmlnode.SelectSingleNode("Contact[@name = '" + ContactToRemove + "']"));
+            xmldoc.Save(xmlFilePath);
+
+            MessageBox.Show("Contact deleted");
+            
         }
     }
 }

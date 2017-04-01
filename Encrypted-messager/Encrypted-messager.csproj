@@ -128,7 +128,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>del /q "C:\Users\PCCOM1\Documents\Visual Studio 2017\Projects\easycrypt\Encrypted-messager\bin\Debug\"*
-for /d %25%25x in ("C:\Users\PCCOM1\Documents\Visual Studio 2017\Projects\easycrypt\Encrypted-messager\bin\Debug\"*) do @rd /s /q "%25%25x"</PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
 </Project>

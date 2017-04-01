@@ -31,7 +31,8 @@ namespace Encrypted_messager
 
         private void aboutButton_Click(object sender, EventArgs e)
         {
-            
+            About about = new About();
+            about.Show();
         }
 
         private void sentMessagesButton_Click(object sender, EventArgs e)

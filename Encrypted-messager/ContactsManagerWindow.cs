@@ -14,7 +14,7 @@ namespace Encrypted_messager
 {
     public partial class ContactsManagerWindow : Form
     {
-
+        ContactList contactsList = new ContactList();
         public ContactsManagerWindow()
         {
             InitializeComponent();
@@ -22,7 +22,6 @@ namespace Encrypted_messager
 
         private void ContactsManagerWindow_Load(object sender, EventArgs e)
         {
-            ContactList contactsList = new ContactList();
             contactList.DataSource = contactsList.contacts.Select(contacts => contacts.name).ToList();
         }
 
@@ -45,7 +44,6 @@ namespace Encrypted_messager
 
         private void RefreshList()
         {
-            ContactList contactsList = new ContactList();
             contactList.DataSource = contactsList.contacts.Select(contacts => contacts.name).ToList();
         }
     }

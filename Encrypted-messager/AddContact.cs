@@ -1,20 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.IO;
-using System.Drawing;
 using System.Linq;
-using static Encrypted_messager.ContactManager;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Encrypted_messager.Global;
 
 namespace Encrypted_messager
 {
     public partial class AddContact : Form
     {
-        ContactManager contactmanager = new ContactManager();
+        ContactList contactmanager = new ContactList();
+        ContactsManagerWindow contactmanagerwindow = new ContactsManagerWindow();
         public string pubKey;
         public AddContact()
         {
@@ -31,8 +26,13 @@ namespace Encrypted_messager
         {
             if (name.Text != String.Empty && email.Text != String.Empty && pubKey != String.Empty && confidence.SelectedItem != null)
             {
-                contactmanager.contacts.Add(new Global.Contacts.Contact { name = name.Text, email = email.Text, publicKey = pubKey, confidence = confidence.SelectedItem.ToString()});
+                contactmanager.contacts.Add(new Contacts.Contact { name = name.Text, email = email.Text, publicKey = pubKey, confidence = confidence.SelectedItem.ToString()});
+                Console.WriteLine(contactmanager.contacts.Count);
+                contactmanagerwindow.contactList.BeginUpdate();
+                contactmanagerwindow.contactList.DataSource = contactmanager.contacts.Select(cont => cont.name).ToList();
+                contactmanagerwindow.contactList.EndUpdate();
                 this.Close();
+                
             }
             else
             {
@@ -62,11 +62,15 @@ namespace Encrypted_messager
                     pubKey = sr.ReadToEnd();
                 }
             }
-            
-
+            filenameOfSelectedFile.Text = ofd.SafeFileName;
         }
 
         private void confidence_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void filenameOfSelectedFile_Click(object sender, EventArgs e)
         {
 
         }

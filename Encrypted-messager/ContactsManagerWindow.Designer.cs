@@ -31,6 +31,7 @@
             this.contactList = new System.Windows.Forms.ComboBox();
             this.contactListLabel = new System.Windows.Forms.Label();
             this.addContact = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // contactList
@@ -40,6 +41,7 @@
             this.contactList.Name = "contactList";
             this.contactList.Size = new System.Drawing.Size(297, 31);
             this.contactList.TabIndex = 0;
+            this.contactList.SelectedIndexChanged += new System.EventHandler(this.contactList_SelectedIndexChanged);
             // 
             // contactListLabel
             // 
@@ -61,12 +63,23 @@
             this.addContact.UseVisualStyleBackColor = true;
             this.addContact.Click += new System.EventHandler(this.addContact_Click);
             // 
+            // exitButton
+            // 
+            this.exitButton.Location = new System.Drawing.Point(352, 535);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(84, 33);
+            this.exitButton.TabIndex = 3;
+            this.exitButton.Text = "Accept";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
             // ContactsManagerWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(445, 580);
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.addContact);
             this.Controls.Add(this.contactListLabel);
             this.Controls.Add(this.contactList);
@@ -81,9 +94,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox contactList;
         private System.Windows.Forms.Label contactListLabel;
         private System.Windows.Forms.Button addContact;
+        public System.Windows.Forms.ComboBox contactList;
+        private System.Windows.Forms.Button exitButton;
     }
 }

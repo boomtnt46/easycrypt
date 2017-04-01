@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Reflection;
-using static Encrypted_messager.ContactManager;
+using static Encrypted_messager.Global;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,11 +14,12 @@ namespace Encrypted_messager
 {
     public partial class MainScreen : Form
     {
-        ContactManager cm = new ContactManager();
+        Global.ContactList contactList = new Global.ContactList();
+        ContactsManagerWindow contactsManagerWindow = new ContactsManagerWindow();
         public MainScreen()
         {
             InitializeComponent();
-            contactListSelection.DataSource = cm.contacts;
+            contactListSelection.DataSource = contactList.contacts.Select(contact => contact.name).ToList();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -28,8 +29,9 @@ namespace Encrypted_messager
 
         private void contacts_Click(object sender, EventArgs e)
         {
-            ContactsManagerWindow cmw = new ContactsManagerWindow();
-            cmw.Show();
+
+            contactsManagerWindow.Show();
+            contactsManagerWindow = new ContactsManagerWindow();
         }
 
         private void aboutButton_Click(object sender, EventArgs e)

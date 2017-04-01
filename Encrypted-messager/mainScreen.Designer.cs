@@ -163,7 +163,7 @@
             this.Controls.Add(this.receivedMessage);
             this.Controls.Add(this.foreignMessage);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "MainScreen";
             this.Text = "Easycrypt";
             this.Load += new System.EventHandler(this.MainScreen_Load);

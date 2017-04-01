@@ -84,6 +84,7 @@
             this.Controls.Add(this.contactListLabel);
             this.Controls.Add(this.contactList);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "ContactsManagerWindow";
             this.Text = "Contacts";

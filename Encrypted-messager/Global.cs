@@ -35,7 +35,12 @@ namespace Encrypted_messager
         public class ContactList
         {
             public List<Contact> contacts = new List<Contact>();
-
+            
+            public ContactList()
+            {
+                XmlHandler xmlhandler = new XmlHandler();
+                contacts = xmlhandler.LoadContactsFromXML();
+            }
         }
 
     }

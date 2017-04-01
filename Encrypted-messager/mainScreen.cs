@@ -15,7 +15,6 @@ namespace Encrypted_messager
     public partial class MainScreen : Form
     {
         ContactList contactList = new ContactList();
-        ContactsManagerWindow contactsManagerWindow = new ContactsManagerWindow();
         public MainScreen()
         {
             InitializeComponent();
@@ -28,9 +27,10 @@ namespace Encrypted_messager
 
         private void contacts_Click(object sender, EventArgs e)
         {
-
+            ContactsManagerWindow contactsManagerWindow = new ContactsManagerWindow();
             contactsManagerWindow.Show();
             contactsManagerWindow = new ContactsManagerWindow();
+
         }
 
         private void aboutButton_Click(object sender, EventArgs e)
@@ -75,7 +75,13 @@ namespace Encrypted_messager
 
         private void contactListSelection_SelectedIndexChanged(object sender, EventArgs e)
         {
+
         }
 
+        private void RefreshList()
+        {
+            contactListSelection.DataSource = contactList.contacts.Select(contact => contact.name).ToList();
+            this.Refresh();
+        }
     }
 }

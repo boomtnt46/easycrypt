@@ -3,6 +3,7 @@ using System.Xml;
 using System.IO;
 using static Encrypted_messager.Global;
 using static Encrypted_messager.Global.Contacts;
+using System.Collections.Generic;
 
 namespace Encrypted_messager
 {
@@ -10,8 +11,7 @@ namespace Encrypted_messager
     {
         XmlDocument xmldoc = new XmlDocument();
         XmlElement xmlcontacts;
-        string xmlFilePath = @Path.GetDirectoryName(Application.ExecutablePath) + @"\DATA.xml";
-        ContactList contactlist = new ContactList();
+        public string xmlFilePath = @Path.GetDirectoryName(Application.ExecutablePath) + @"\DATA.xml";
 
         public XmlHandler()
         {
@@ -38,8 +38,9 @@ namespace Encrypted_messager
             xmldoc.Save(xmlFilePath);
         }
 
-        public void LoadContactsFromXML()
+        public List<Contact> LoadContactsFromXML()
         {
+            List<Contact> list = new List<Contact>();
             MessageBox.Show(xmldoc.OuterXml);
             XmlNodeList contactNodes = xmldoc.GetElementsByTagName("Contact");
 
@@ -48,7 +49,7 @@ namespace Encrypted_messager
 
                 XmlAttributeCollection xmlAttrs = xmlnode.Attributes;
                 XmlNode xmlElem = xmlnode.FirstChild;
-                contactlist.contacts.Add(new Contact
+                list.Add(new Contact
                 {
                     name = xmlAttrs.GetNamedItem("name").InnerText,
                     email = xmlAttrs.GetNamedItem("email").InnerText,
@@ -56,6 +57,8 @@ namespace Encrypted_messager
                     publicKey = xmlElem.InnerText
                 });
             }
+            return list;
+
         }
     }
 }

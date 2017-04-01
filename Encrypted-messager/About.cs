@@ -19,9 +19,15 @@ namespace Encrypted_messager
         {
             linkToTwitter.Links.Add(0, linkToTwitter.Text.Length, "https://twitter.com/boomtnt46");
             linkToGithub.Links.Add(0, linkToGithub.Text.Length, "https://github.com/boomtnt46/easycrypt");
+            pgpsharplink.Links.Add(0, pgpsharplink.Text.Length, "https://github.com/soukoku/PgpSharp");
         }
 
         private void linkToGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
+        }
+
+        private void pgpsharplink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
         }

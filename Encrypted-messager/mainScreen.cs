@@ -1,42 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Reflection;
-using static Encrypted_messager.Global;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Encrypted_messager.Global;
+using static Encrypted_messager.Global.Contacts;
 
 namespace Encrypted_messager
 {
     public partial class MainScreen : Form
     {
-        Global.ContactList contactList = new Global.ContactList();
-        ContactsManagerWindow contactsManagerWindow = new ContactsManagerWindow();
+
+        ContactList contactList = new ContactList();
         public MainScreen()
         {
             InitializeComponent();
-            contactListSelection.DataSource = contactList.contacts.Select(contact => contact.name).ToList();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainScreen_Load(object sender, EventArgs e)
         {
-
+            contactListSelection.DataSource = contactList.contacts.Select(contacts => contacts.name).ToList();
         }
 
         private void contacts_Click(object sender, EventArgs e)
         {
-
+            ContactsManagerWindow contactsManagerWindow = new ContactsManagerWindow();
             contactsManagerWindow.Show();
-            contactsManagerWindow = new ContactsManagerWindow();
+            RefreshList();
+
         }
 
         private void aboutButton_Click(object sender, EventArgs e)
         {
-            
+            About about = new About();
+            about.Show();
         }
 
         private void sentMessagesButton_Click(object sender, EventArgs e)
@@ -76,7 +72,13 @@ namespace Encrypted_messager
 
         private void contactListSelection_SelectedIndexChanged(object sender, EventArgs e)
         {
+
         }
 
+        private void RefreshList()
+        {
+            ContactList contactsList = new ContactList();
+            contactListSelection.DataSource = contactsList.contacts.Select(contacts => contacts.name).ToList();
+        }
     }
 }

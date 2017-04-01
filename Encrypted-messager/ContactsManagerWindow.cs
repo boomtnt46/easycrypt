@@ -14,16 +14,14 @@ namespace Encrypted_messager
 {
     public partial class ContactsManagerWindow : Form
     {
-        public ContactList contactsList = new ContactList();
+        ContactList contactsList = new ContactList();
         public ContactsManagerWindow()
         {
             InitializeComponent();
-            contactList.DataSource = contactsList.contacts.Select(contacts => contacts.name).ToList();
         }
 
         private void ContactsManagerWindow_Load(object sender, EventArgs e)
         {
-            contactsList.contacts.Add(new Contact { name = "john", confidence = "Low", email = "dxsdAS", publicKey = "dswd" });
             contactList.DataSource = contactsList.contacts.Select(contacts => contacts.name).ToList();
         }
 
@@ -31,6 +29,7 @@ namespace Encrypted_messager
         {
             AddContact AddContact = new AddContact();
             AddContact.Show();
+            RefreshList();
         }
 
         public void contactList_SelectedIndexChanged(object sender, EventArgs e)
@@ -41,6 +40,11 @@ namespace Encrypted_messager
         private void exitButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void RefreshList()
+        {
+            contactList.DataSource = contactsList.contacts.Select(contacts => contacts.name).ToList();
         }
     }
 

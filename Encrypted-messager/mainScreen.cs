@@ -1,9 +1,7 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using static Encrypted_messager.Global;
-using static Encrypted_messager.Global.Contacts;
 
 namespace Encrypted_messager
 {

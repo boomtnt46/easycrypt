@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 using static Encrypted_messager.Global.Contacts;
-using System.Xml;
-using System.ComponentModel;
 
 namespace Encrypted_messager
 {

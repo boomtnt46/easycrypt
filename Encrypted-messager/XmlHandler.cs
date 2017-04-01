@@ -1,10 +1,8 @@
-﻿using System.Windows.Forms;
-using System.Xml;
+﻿using System.ComponentModel;
 using System.IO;
-using static Encrypted_messager.Global;
+using System.Windows.Forms;
+using System.Xml;
 using static Encrypted_messager.Global.Contacts;
-using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace Encrypted_messager
 {

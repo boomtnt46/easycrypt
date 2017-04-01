@@ -57,7 +57,7 @@
             // linkToGithub
             // 
             this.linkToGithub.AutoSize = true;
-            this.linkToGithub.Location = new System.Drawing.Point(486, 584);
+            this.linkToGithub.Location = new System.Drawing.Point(596, 584);
             this.linkToGithub.Name = "linkToGithub";
             this.linkToGithub.Size = new System.Drawing.Size(159, 23);
             this.linkToGithub.TabIndex = 2;

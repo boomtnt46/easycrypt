@@ -42,6 +42,12 @@ namespace Encrypted_messager
                 XmlHandler xmlhandler = new XmlHandler();
                 contacts = xmlhandler.LoadContactsFromXML();
             }
+
+            public void ReloadList()
+            {
+                XmlHandler xmlhandler = new XmlHandler();
+                contacts = xmlhandler.LoadContactsFromXML();
+            }
         }
 
     }

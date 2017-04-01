@@ -9,8 +9,7 @@ namespace Encrypted_messager
 {
     public partial class MainScreen : Form
     {
-
-        ContactList contactList = new ContactList();
+        ContactList contactsList = new ContactList();
         public MainScreen()
         {
             InitializeComponent();
@@ -18,13 +17,14 @@ namespace Encrypted_messager
 
         private void MainScreen_Load(object sender, EventArgs e)
         {
-            contactListSelection.DataSource = contactList.contacts.Select(contacts => contacts.name).ToList();
+            contactListSelection.DataSource = contactsList.contacts.Select(contacts => contacts.name).ToList();
         }
 
         private void contacts_Click(object sender, EventArgs e)
         {
             ContactsManagerWindow contactsManagerWindow = new ContactsManagerWindow();
             contactsManagerWindow.Show();
+            contactsList = new ContactList();
             RefreshList();
 
         }
@@ -72,12 +72,12 @@ namespace Encrypted_messager
 
         private void contactListSelection_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            RefreshList();
         }
 
         private void RefreshList()
         {
-            ContactList contactsList = new ContactList();
+            contactsList = new ContactList();
             contactListSelection.DataSource = contactsList.contacts.Select(contacts => contacts.name).ToList();
         }
     }

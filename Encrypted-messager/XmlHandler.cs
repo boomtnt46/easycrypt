@@ -60,5 +60,15 @@ namespace Encrypted_messager
             return list;
 
         }
+
+        public void DeleteContact(string ContactToRemove)
+        {
+            XmlNode xmlnode = xmldoc.GetElementsByTagName("Contacts")[0];
+            xmlnode.RemoveChild(xmlnode.SelectSingleNode("Contact[@name = '" + ContactToRemove + "']"));
+            xmldoc.Save(xmlFilePath);
+
+            MessageBox.Show("Contact deleted");
+            
+        }
     }
 }

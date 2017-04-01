@@ -14,17 +14,16 @@ namespace Encrypted_messager
 {
     public partial class MainScreen : Form
     {
-        Global.ContactList contactList = new Global.ContactList();
+        ContactList contactList = new ContactList();
         ContactsManagerWindow contactsManagerWindow = new ContactsManagerWindow();
         public MainScreen()
         {
             InitializeComponent();
-            contactListSelection.DataSource = contactList.contacts.Select(contact => contact.name).ToList();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainScreen_Load(object sender, EventArgs e)
         {
-
+            contactListSelection.DataSource = contactList.contacts.Select(contact => contact.name).ToList();
         }
 
         private void contacts_Click(object sender, EventArgs e)

@@ -35,37 +35,8 @@ namespace Encrypted_messager
         public class ContactList
         {
             public List<Contact> contacts = new List<Contact>();
-            public ContactList()
-            {
-                
-            }
+
         }
 
-        public class XmlHandler
-        {
-            XmlElement contact = (XmlElement)contacts.AppendChild(xmldoc.CreateElement("Contact"));
-            contact.SetAttribute("Name", name.Text);
-            contact.SetAttribute("Last-name", last_name.Text);
-            contact.SetAttribute("Nick", nick.Text);
-
-            MessageBox.Show(xmldoc.OuterXml);
-            XmlNodeList contactNodes = xmldoc.GetElementsByTagName("Contact");
-            XmlNodeList contactsName = xmldoc.GetElementsByTagName("Name");
-            XmlNodeList contactsLastName = xmldoc.GetElementsByTagName("Last-name");
-            XmlNodeList contactsNick = xmldoc.GetElementsByTagName("Nick");
-
-            foreach (XmlNode xmlnode in contactNodes)
-            {
-                //contactList.Add(new Contact{ });
-                XmlAttributeCollection xmlAttrs = xmlnode.Attributes;
-            contactList.Add(new Contact
-                {
-                    name = xmlAttrs.GetNamedItem("Name").InnerText,
-                    last_name = xmlAttrs.GetNamedItem("Last-name").InnerText,
-                    nick = xmlAttrs.GetNamedItem("Nick").InnerText
-        });
-            }
-    MessageBox.Show(contactList[0].name + " " + contactList[0].last_name + " " + contactList[0].nick);
-        }
     }
 }

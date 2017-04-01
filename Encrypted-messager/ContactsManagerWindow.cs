@@ -23,7 +23,6 @@ namespace Encrypted_messager
 
         private void ContactsManagerWindow_Load(object sender, EventArgs e)
         {
-            contactsList.contacts.Add(new Contact { name = "john", confidence = "Low", email = "dxsdAS", publicKey = "dswd" });
             contactList.DataSource = contactsList.contacts.Select(contacts => contacts.name).ToList();
         }
 

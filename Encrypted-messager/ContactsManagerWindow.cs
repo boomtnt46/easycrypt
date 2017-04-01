@@ -30,6 +30,7 @@ namespace Encrypted_messager
         {
             AddContact AddContact = new AddContact();
             AddContact.Show();
+            RefreshList();
         }
 
         public void contactList_SelectedIndexChanged(object sender, EventArgs e)
@@ -40,6 +41,12 @@ namespace Encrypted_messager
         private void exitButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void RefreshList()
+        {
+            ContactList contactsList = new ContactList();
+            contactList.DataSource = contactsList.contacts.Select(contacts => contacts.name).ToList();
         }
     }
 

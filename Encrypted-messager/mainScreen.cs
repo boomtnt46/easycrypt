@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Reflection;
-using static Encrypted_messager.Global;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Encrypted_messager.Global;
+using static Encrypted_messager.Global.Contacts;
 
 namespace Encrypted_messager
 {
     public partial class MainScreen : Form
     {
+
         ContactList contactList = new ContactList();
         public MainScreen()
         {
@@ -22,14 +18,14 @@ namespace Encrypted_messager
 
         private void MainScreen_Load(object sender, EventArgs e)
         {
-            contactListSelection.DataSource = contactList.contacts.Select(contact => contact.name).ToList();
+            contactListSelection.DataSource = contactList.contacts.Select(contacts => contacts.name).ToList();
         }
 
         private void contacts_Click(object sender, EventArgs e)
         {
             ContactsManagerWindow contactsManagerWindow = new ContactsManagerWindow();
             contactsManagerWindow.Show();
-            contactsManagerWindow = new ContactsManagerWindow();
+            RefreshList();
 
         }
 
@@ -80,8 +76,8 @@ namespace Encrypted_messager
 
         private void RefreshList()
         {
-            contactListSelection.DataSource = contactList.contacts.Select(contact => contact.name).ToList();
-            this.Refresh();
+            ContactList contactsList = new ContactList();
+            contactListSelection.DataSource = contactsList.contacts.Select(contacts => contacts.name).ToList();
         }
     }
 }

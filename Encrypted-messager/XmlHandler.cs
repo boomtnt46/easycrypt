@@ -4,6 +4,7 @@ using System.IO;
 using static Encrypted_messager.Global;
 using static Encrypted_messager.Global.Contacts;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Encrypted_messager
 {
@@ -38,10 +39,9 @@ namespace Encrypted_messager
             xmldoc.Save(xmlFilePath);
         }
 
-        public List<Contact> LoadContactsFromXML()
+        public BindingList<Contact> LoadContactsFromXML()
         {
-            List<Contact> list = new List<Contact>();
-            MessageBox.Show(xmldoc.OuterXml);
+            BindingList<Contact> list = new BindingList<Contact>();
             XmlNodeList contactNodes = xmldoc.GetElementsByTagName("Contact");
 
             foreach (XmlNode xmlnode in contactNodes)

@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using static Encrypted_messager.Global.Contacts;
 using System.Xml;
+using System.ComponentModel;
 
 namespace Encrypted_messager
 {
@@ -34,7 +35,7 @@ namespace Encrypted_messager
 
         public class ContactList
         {
-            public List<Contact> contacts = new List<Contact>();
+            public BindingList<Contact> contacts = new BindingList<Contact>();
             
             public ContactList()
             {

@@ -5,7 +5,7 @@ namespace Encrypted_messager
 {
     public class Global
     {
-       
+       public static string GpgBinaryPath { get; set; }
         static public class Contacts
         {
             public class Contact

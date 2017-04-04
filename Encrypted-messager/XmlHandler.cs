@@ -6,14 +6,17 @@ using static Encrypted_messager.Global.Contacts;
 
 namespace Encrypted_messager
 {
-    public class XmlHandler
+    public static class XmlHandler
     {
-        XmlDocument xmldoc = new XmlDocument();
-        XmlElement xmlcontacts;
-        public string xmlFilePath = @Path.GetDirectoryName(Application.ExecutablePath) + @"\DATA.xml";
-
-        public XmlHandler()
+        static XmlDocument xmldoc = new XmlDocument();
+        static XmlElement xmlcontacts;
+        static string xmlFilePath = @Path.GetDirectoryName(Application.ExecutablePath) + @"\DATA.xml";
+        static  XmlHandler()
         {
+            XmlDocument xmldoc = new XmlDocument();
+            XmlElement xmlcontacts;
+            string xmlFilePath = @Path.GetDirectoryName(Application.ExecutablePath) + @"\DATA.xml";
+
             if (File.Exists(xmlFilePath))
             {
                 xmldoc.Load(xmlFilePath);
@@ -27,7 +30,7 @@ namespace Encrypted_messager
 
         }
 
-        public void WriteContactToXML(string name, string email, string confidence, string pubkey)
+        public static void WriteContactToXML(string name, string email, string confidence, string pubkey)
         {
             XmlElement contact = (XmlElement)xmlcontacts.AppendChild(xmldoc.CreateElement("Contact"));
             contact.SetAttribute("name", name);
@@ -37,7 +40,7 @@ namespace Encrypted_messager
             xmldoc.Save(xmlFilePath);
         }
 
-        public BindingList<Contact> LoadContactsFromXML()
+        public static BindingList<Contact> LoadContactsFromXML()
         {
             BindingList<Contact> list = new BindingList<Contact>();
             XmlNodeList contactNodes = xmldoc.GetElementsByTagName("Contact");
@@ -59,7 +62,7 @@ namespace Encrypted_messager
 
         }
 
-        public void DeleteContact(string ContactToRemove)
+        public static void DeleteContact(string ContactToRemove)
         {
             XmlNode xmlnode = xmldoc.GetElementsByTagName("Contacts")[0];
             xmlnode.RemoveChild(xmlnode.SelectSingleNode("Contact[@name = '" + ContactToRemove + "']"));

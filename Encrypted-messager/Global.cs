@@ -30,14 +30,12 @@ namespace Encrypted_messager
             
             public ContactList()
             {
-                XmlHandler xmlhandler = new XmlHandler();
-                contacts = xmlhandler.LoadContactsFromXML();
+                contacts = XmlHandler.LoadContactsFromXML();
             }
 
             public void ReloadList()
             {
-                XmlHandler xmlhandler = new XmlHandler();
-                contacts = xmlhandler.LoadContactsFromXML();
+                contacts = XmlHandler.LoadContactsFromXML();
             }
         }
 

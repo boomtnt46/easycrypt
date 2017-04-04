@@ -86,6 +86,12 @@
     <Compile Include="ContactsManagerWindow.Designer.cs">
       <DependentUpon>ContactsManagerWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateKeys.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateKeys.Designer.cs">
+      <DependentUpon>CreateKeys.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="mainScreen.cs">
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ContactsManagerWindow.resx">
       <DependentUpon>ContactsManagerWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateKeys.resx">
+      <DependentUpon>CreateKeys.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mainScreen.resx">
       <DependentUpon>mainScreen.cs</DependentUpon>

@@ -44,8 +44,7 @@ namespace Encrypted_messager
         {
             if(MessageBox.Show("Are you sure you want to remove the selected contact?", "Remove contact", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                XmlHandler xmlhandler = new XmlHandler();
-                xmlhandler.DeleteContact(contactList.SelectedItem.ToString());
+                XmlHandler.DeleteContact(contactList.SelectedItem.ToString());
 
             }
         }

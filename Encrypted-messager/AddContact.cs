@@ -21,8 +21,7 @@ namespace Encrypted_messager
         {
             if (name.Text != String.Empty && email.Text != String.Empty && pubKey != String.Empty && confidence.SelectedItem != null)
             {
-                XmlHandler xmlhandler = new XmlHandler();
-                xmlhandler.WriteContactToXML(name.Text, email.Text, confidence.SelectedItem.ToString(), pubKey);
+                XmlHandler.WriteContactToXML(name.Text, email.Text, confidence.SelectedItem.ToString(), pubKey);
                 this.Close();
                 
             }

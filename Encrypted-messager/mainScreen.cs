@@ -14,6 +14,7 @@ namespace Encrypted_messager
         public MainScreen()
         {
             InitializeComponent();
+            //This looks for the config file, and if it doesn't exist, creates one
             if (!File.Exists("settings.dat"))
             {
                 while (!File.Exists(path))
@@ -45,25 +46,26 @@ namespace Encrypted_messager
                     {
                         continue;
                     }
-
+                    (new CreateKeys()).Show();
                 }
             }
             else
             {
                 StreamReader sr = new StreamReader("settings.dat", Encoding.UTF8);
                 @path = sr.ReadLine().Substring(12);
-                MessageBox.Show(path);
             }
             
         }
 
         private void MainScreen_Load(object sender, EventArgs e)
         {
+            //load contact list for main form
             contactListSelection.DataSource = contactsList.contacts.Select(contacts => contacts.name).ToList();
         }
 
         private void contacts_Click(object sender, EventArgs e)
         {
+            //Show contcts window
             ContactsManagerWindow contactsManagerWindow = new ContactsManagerWindow();
             contactsManagerWindow.Show();
             contactsList = new ContactList();
@@ -73,6 +75,7 @@ namespace Encrypted_messager
 
         private void aboutButton_Click(object sender, EventArgs e)
         {
+            //Show about window
             About about = new About();
             about.Show();
         }
@@ -118,7 +121,9 @@ namespace Encrypted_messager
         }
 
         private void RefreshList()
+
         {
+            //refresh contact list
             contactsList = new ContactList();
             contactListSelection.DataSource = contactsList.contacts.Select(contacts => contacts.name).ToList();
         }

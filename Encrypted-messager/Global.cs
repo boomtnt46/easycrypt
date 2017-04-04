@@ -3,7 +3,7 @@ using static Encrypted_messager.Global.Contacts;
 
 namespace Encrypted_messager
 {
-    public class Global
+    public static class Global
     {
        public static string GpgBinaryPath { get; set; }
         static public class Contacts
@@ -24,16 +24,16 @@ namespace Encrypted_messager
             }
         }
 
-        public class ContactList
+        public static class ContactList
         {
-            public BindingList<Contact> contacts = new BindingList<Contact>();
+            static public BindingList<Contact> contacts = new BindingList<Contact>();
             
-            public ContactList()
+            static  ContactList()
             {
                 contacts = XmlHandler.LoadContactsFromXML();
             }
 
-            public void ReloadList()
+            public static void ReloadList()
             {
                 contacts = XmlHandler.LoadContactsFromXML();
             }

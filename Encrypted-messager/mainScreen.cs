@@ -9,7 +9,6 @@ namespace Encrypted_messager
 {
     public partial class MainScreen : Form
     {
-        ContactList contactsList = new ContactList();
         public string path = @"C:\Program Files (x86)\GnuPG\bin\gpgd.exe"; //default path for gpg bin file
         public MainScreen()
         {
@@ -60,7 +59,7 @@ namespace Encrypted_messager
         private void MainScreen_Load(object sender, EventArgs e)
         {
             //load contact list for main form
-            contactListSelection.DataSource = contactsList.contacts.Select(contacts => contacts.name).ToList();
+            contactListSelection.DataSource = ContactList.contacts.Select(contacts => contacts.name).ToList();
         }
 
         private void contacts_Click(object sender, EventArgs e)
@@ -68,7 +67,6 @@ namespace Encrypted_messager
             //Show contcts window
             ContactsManagerWindow contactsManagerWindow = new ContactsManagerWindow();
             contactsManagerWindow.Show();
-            contactsList = new ContactList();
             RefreshList();
 
         }
@@ -124,8 +122,7 @@ namespace Encrypted_messager
 
         {
             //refresh contact list
-            contactsList = new ContactList();
-            contactListSelection.DataSource = contactsList.contacts.Select(contacts => contacts.name).ToList();
+            contactListSelection.DataSource = ContactList.contacts.Select(contacts => contacts.name).ToList();
         }
     }
 }

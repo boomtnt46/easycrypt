@@ -41,10 +41,17 @@ namespace Encrypted_messager
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Are you sure you want to remove the selected contact?", "Remove contact", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (contactList.SelectedItem != null)
             {
-                XmlHandler.DeleteContact(contactList.SelectedItem.ToString());
+                if (MessageBox.Show("Are you sure you want to remove the selected contact?", "Remove contact", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    XmlHandler.DeleteContact(contactList.SelectedItem.ToString());
 
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a contact");
             }
         }
     }

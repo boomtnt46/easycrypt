@@ -32,7 +32,6 @@
             this.linkToTwitter = new System.Windows.Forms.LinkLabel();
             this.infoLabel = new System.Windows.Forms.Label();
             this.linkToGithub = new System.Windows.Forms.LinkLabel();
-            this.pgpsharplink = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // linkToTwitter
@@ -51,7 +50,7 @@
             this.infoLabel.AutoSize = true;
             this.infoLabel.Location = new System.Drawing.Point(12, 9);
             this.infoLabel.Name = "infoLabel";
-            this.infoLabel.Size = new System.Drawing.Size(1032, 575);
+            this.infoLabel.Size = new System.Drawing.Size(914, 529);
             this.infoLabel.TabIndex = 1;
             this.infoLabel.Text = resources.GetString("infoLabel.Text");
             // 
@@ -66,23 +65,11 @@
             this.linkToGithub.Text = "See source code";
             this.linkToGithub.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkToGithub_LinkClicked);
             // 
-            // pgpsharplink
-            // 
-            this.pgpsharplink.AutoSize = true;
-            this.pgpsharplink.Location = new System.Drawing.Point(789, 584);
-            this.pgpsharplink.Name = "pgpsharplink";
-            this.pgpsharplink.Size = new System.Drawing.Size(246, 23);
-            this.pgpsharplink.TabIndex = 3;
-            this.pgpsharplink.TabStop = true;
-            this.pgpsharplink.Text = "SeePgpSharp source code";
-            this.pgpsharplink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.pgpsharplink_LinkClicked);
-            // 
             // About
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1041, 616);
-            this.Controls.Add(this.pgpsharplink);
             this.Controls.Add(this.linkToGithub);
             this.Controls.Add(this.infoLabel);
             this.Controls.Add(this.linkToTwitter);
@@ -102,6 +89,5 @@
         private System.Windows.Forms.LinkLabel linkToTwitter;
         private System.Windows.Forms.Label infoLabel;
         private System.Windows.Forms.LinkLabel linkToGithub;
-        private System.Windows.Forms.LinkLabel pgpsharplink;
     }
 }

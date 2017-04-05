@@ -26,9 +26,6 @@ namespace Encrypted_messager
             System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
         }
 
-        private void pgpsharplink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
-        }
+        
     }
 }

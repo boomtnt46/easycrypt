@@ -13,21 +13,25 @@ namespace Encrypted_messager
         public MainScreen()
         {
             InitializeComponent();
-            this.Enabled = false;
-            (new CreateKeys()).Show();
-            this.Enabled = true;
             //This looks for the config file, and if it doesn't exist, creates one.
 
-            /*if (!File.Exists("settings.dat"))
+            if (!File.Exists("settings.dat"))
             {
-                //TODO: CREATE CONFIG FILE (IF NECCESARY)
+                this.Enabled = false;
+                new CreateKeys().ShowDialog();
+                this.Enabled = true;
+                StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + @"\settings.dat");
+                sw.WriteLine("keys-alredy-created=" + true);
+                sw.Close();
+                MessageBox.Show("Keys created. The program will now close. Plese start it again.");
+                Environment.Exit(1);
             }
             else
             {
                 //StreamReader sr = new StreamReader("settings.dat", Encoding.UTF8);
                 //@path = sr.ReadLine().Substring(12);
             }
-            */
+            
 
         }
 

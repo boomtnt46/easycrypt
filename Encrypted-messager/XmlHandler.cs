@@ -14,7 +14,6 @@ namespace Encrypted_messager
         static  XmlHandler()
         {
             XmlDocument xmldoc = new XmlDocument();
-            XmlElement xmlcontacts;
             string xmlFilePath = @Path.GetDirectoryName(Application.ExecutablePath) + @"\DATA.xml";
 
             if (File.Exists(xmlFilePath))

@@ -17,7 +17,7 @@ namespace Encrypted_messager
         public CreateKeys()
         {
             InitializeComponent();
-            this.TopMost = true;
+            this.ControlBox = false;
             MessageBox.Show("It seems that this is the first run. Please create a pair of keys. Fill the form to continue.");
         }
 
@@ -30,7 +30,9 @@ namespace Encrypted_messager
         {
             if (passwordTextBox.Text == repeatPassowrdTextBox.Text)
             {
+                MessageBox.Show("The program will now generate the keys. This may take some time. Please wait patiently.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Keys.GenerateKeys(textBox1.Text, passwordTextBox.Text);
+                this.Close();
             }
             else
             {
@@ -69,7 +71,7 @@ namespace Encrypted_messager
         public static void GenerateKey(string username, string password, string keyStoreUrl)
         {
             IAsymmetricCipherKeyPairGenerator kpg = new RsaKeyPairGenerator();
-            kpg.Init(new RsaKeyGenerationParameters(new BigInteger((new SecureRandom()).Next(0, Int32.MaxValue).ToString()), new SecureRandom(), 2048, 8));
+            kpg.Init(new RsaKeyGenerationParameters(BigInteger.ValueOf(new SecureRandom().Next()), new SecureRandom(), 4096, 8));
             AsymmetricCipherKeyPair kp = kpg.GenerateKeyPair();
 
             FileStream out1 = new FileInfo(string.Format("{0}secret.asc", keyStoreUrl)).OpenWrite();

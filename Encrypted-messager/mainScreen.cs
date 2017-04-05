@@ -38,7 +38,7 @@ namespace Encrypted_messager
         private void MainScreen_Load(object sender, EventArgs e)
         {
             //load contact list for main form
-            contactListSelection.DataSource = ContactList.contacts.Select(contacts => contacts.name).ToList();
+            contactListSelection.DataSource = ContactList.ReturnList().Select(contacts => (contacts.name + " (" + contacts.email + ")")).ToList();
         }
 
         private void contacts_Click(object sender, EventArgs e)
@@ -46,7 +46,6 @@ namespace Encrypted_messager
             //Show contcts window
             ContactsManagerWindow contactsManagerWindow = new ContactsManagerWindow();
             contactsManagerWindow.Show();
-            RefreshList();
 
         }
 
@@ -94,15 +93,7 @@ namespace Encrypted_messager
 
         private void contactListSelection_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //call once the list is clicked
-            RefreshList();
-        }
-
-        private void RefreshList()
-
-        {
-            //refresh contact list
-            contactListSelection.DataSource = ContactList.contacts.Select(contacts => contacts.name).ToList();
+            contactListSelection.DataSource = ContactList.ReturnList().Select(contacts => (contacts.name + " (" + contacts.email + ")")).ToList();
         }
     }
 }

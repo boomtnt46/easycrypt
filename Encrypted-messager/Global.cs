@@ -27,8 +27,15 @@ namespace Encrypted_messager
         public static class ContactList
         {
             static public BindingList<Contact> contacts = new BindingList<Contact>();
+
+            public static BindingList<Contact> ReturnList()
+            {
+                ReloadList();
+                return contacts;
+            }
+
             
-            static  ContactList()
+            static ContactList()
             {
                 contacts = XmlHandler.LoadContactsFromXML();
             }

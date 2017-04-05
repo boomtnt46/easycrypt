@@ -1,34 +1,57 @@
 ﻿using System;
 using System.Linq;
+using System.IO;
 using System.Windows.Forms;
+using System.Text;
 using static Encrypted_messager.Global;
 
 namespace Encrypted_messager
 {
     public partial class MainScreen : Form
     {
-        ContactList contactsList = new ContactList();
+        public string path = @"C:\Program Files (x86)\GnuPG\bin\gpgd.exe"; //default path for gpg bin file
         public MainScreen()
         {
             InitializeComponent();
+            //This looks for the config file, and if it doesn't exist, creates one.
+
+            if (!File.Exists("settings.dat"))
+            {
+                this.Enabled = false;
+                new CreateKeys().ShowDialog();
+                this.Enabled = true;
+                StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + @"\settings.dat");
+                sw.WriteLine("keys-alredy-created=" + true);
+                sw.Close();
+                MessageBox.Show("Keys created. The program will now close. Plese start it again.");
+                Environment.Exit(1);
+            }
+            else
+            {
+                //StreamReader sr = new StreamReader("settings.dat", Encoding.UTF8);
+                //@path = sr.ReadLine().Substring(12);
+            }
+            
+
         }
 
         private void MainScreen_Load(object sender, EventArgs e)
         {
-            contactListSelection.DataSource = contactsList.contacts.Select(contacts => contacts.name).ToList();
+            //load contact list for main form
+            contactListSelection.DataSource = ContactList.ReturnList().Select(contacts => (contacts.name + " (" + contacts.email + ")")).ToList();
         }
 
         private void contacts_Click(object sender, EventArgs e)
         {
+            //Show contcts window
             ContactsManagerWindow contactsManagerWindow = new ContactsManagerWindow();
             contactsManagerWindow.Show();
-            contactsList = new ContactList();
-            RefreshList();
 
         }
 
         private void aboutButton_Click(object sender, EventArgs e)
         {
+            //Show about window
             About about = new About();
             about.Show();
         }
@@ -70,13 +93,7 @@ namespace Encrypted_messager
 
         private void contactListSelection_SelectedIndexChanged(object sender, EventArgs e)
         {
-            RefreshList();
-        }
-
-        private void RefreshList()
-        {
-            contactsList = new ContactList();
-            contactListSelection.DataSource = contactsList.contacts.Select(contacts => contacts.name).ToList();
+            contactListSelection.DataSource = ContactList.ReturnList().Select(contacts => (contacts.name + " (" + contacts.email + ")")).ToList();
         }
     }
 }

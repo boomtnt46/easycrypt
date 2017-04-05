@@ -41,7 +41,7 @@
             this.contactList.FormattingEnabled = true;
             this.contactList.Location = new System.Drawing.Point(12, 39);
             this.contactList.Name = "contactList";
-            this.contactList.Size = new System.Drawing.Size(258, 31);
+            this.contactList.Size = new System.Drawing.Size(384, 31);
             this.contactList.TabIndex = 0;
             this.contactList.SelectedIndexChanged += new System.EventHandler(this.contactList_SelectedIndexChanged);
             // 
@@ -57,7 +57,7 @@
             // 
             // addContact
             // 
-            this.addContact.Location = new System.Drawing.Point(16, 76);
+            this.addContact.Location = new System.Drawing.Point(12, 76);
             this.addContact.Name = "addContact";
             this.addContact.Size = new System.Drawing.Size(109, 31);
             this.addContact.TabIndex = 2;
@@ -67,9 +67,9 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(354, 268);
+            this.exitButton.Location = new System.Drawing.Point(474, 259);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(84, 33);
+            this.exitButton.Size = new System.Drawing.Size(90, 40);
             this.exitButton.TabIndex = 3;
             this.exitButton.Text = "Accept";
             this.exitButton.UseVisualStyleBackColor = true;
@@ -77,7 +77,7 @@
             // 
             // editButton
             // 
-            this.editButton.Location = new System.Drawing.Point(276, 40);
+            this.editButton.Location = new System.Drawing.Point(402, 40);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(62, 30);
             this.editButton.TabIndex = 4;
@@ -86,7 +86,7 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(344, 40);
+            this.deleteButton.Location = new System.Drawing.Point(470, 40);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(94, 30);
             this.deleteButton.TabIndex = 5;
@@ -99,7 +99,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(445, 311);
+            this.ClientSize = new System.Drawing.Size(568, 311);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.exitButton);

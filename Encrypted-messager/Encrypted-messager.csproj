@@ -58,9 +58,6 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.1\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
-    <Reference Include="ChoPGP, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ChoPGP.1.0.0.7\lib\ChoPGP.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -86,6 +83,12 @@
     <Compile Include="ContactsManagerWindow.Designer.cs">
       <DependentUpon>ContactsManagerWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateKeys.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateKeys.Designer.cs">
+      <DependentUpon>CreateKeys.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="mainScreen.cs">
@@ -106,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ContactsManagerWindow.resx">
       <DependentUpon>ContactsManagerWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateKeys.resx">
+      <DependentUpon>CreateKeys.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mainScreen.resx">
       <DependentUpon>mainScreen.cs</DependentUpon>

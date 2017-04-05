@@ -3,9 +3,9 @@ using static Encrypted_messager.Global.Contacts;
 
 namespace Encrypted_messager
 {
-    public class Global
+    public static class Global
     {
-       
+       public static string GpgBinaryPath { get; set; }
         static public class Contacts
         {
             public class Contact
@@ -24,20 +24,25 @@ namespace Encrypted_messager
             }
         }
 
-        public class ContactList
+        public static class ContactList
         {
-            public BindingList<Contact> contacts = new BindingList<Contact>();
-            
-            public ContactList()
+            static public BindingList<Contact> contacts = new BindingList<Contact>();
+
+            public static BindingList<Contact> ReturnList()
             {
-                XmlHandler xmlhandler = new XmlHandler();
-                contacts = xmlhandler.LoadContactsFromXML();
+                ReloadList();
+                return contacts;
             }
 
-            public void ReloadList()
+            
+            static ContactList()
             {
-                XmlHandler xmlhandler = new XmlHandler();
-                contacts = xmlhandler.LoadContactsFromXML();
+                contacts = XmlHandler.LoadContactsFromXML();
+            }
+
+            public static void ReloadList()
+            {
+                contacts = XmlHandler.LoadContactsFromXML();
             }
         }
 

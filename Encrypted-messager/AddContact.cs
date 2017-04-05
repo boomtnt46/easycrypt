@@ -6,7 +6,6 @@ namespace Encrypted_messager
 {
     public partial class AddContact : Form
     {
-        OpenFileDialog ofd = new OpenFileDialog();
         public string pubKey;
         public AddContact()
         {
@@ -22,8 +21,7 @@ namespace Encrypted_messager
         {
             if (name.Text != String.Empty && email.Text != String.Empty && pubKey != String.Empty && confidence.SelectedItem != null)
             {
-                XmlHandler xmlhandler = new XmlHandler();
-                xmlhandler.WriteContactToXML(name.Text, email.Text, confidence.SelectedItem.ToString(), pubKey);
+                XmlHandler.WriteContactToXML(name.Text, email.Text, confidence.SelectedItem.ToString(), pubKey);
                 this.Close();
                 
             }
@@ -45,7 +43,8 @@ namespace Encrypted_messager
 
         private void selectPublicKey_Click(object sender, EventArgs e)
         {
-            ofd.Filter = "txt files (*.txt)|*.txt|pgp files (*.pgp)|*.pgp|asc files (*.asc)|*.asc";
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "txt files (*.txt)|*.txt|pgp files (*.pgp)|*.pgp|asc files (*.asc)|*.asc|any file|*.*";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 if (ofd.OpenFile() != null)

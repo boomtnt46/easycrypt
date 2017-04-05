@@ -1,18 +1,18 @@
 ﻿using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
+using System.Diagnostics;
 using System.Xml;
 using static Encrypted_messager.Global.Contacts;
 
 namespace Encrypted_messager
 {
-    public class XmlHandler
+    public static class XmlHandler
     {
-        XmlDocument xmldoc = new XmlDocument();
-        XmlElement xmlcontacts;
-        public string xmlFilePath = @Path.GetDirectoryName(Application.ExecutablePath) + @"\DATA.xml";
-
-        public XmlHandler()
+        static XmlDocument xmldoc = new XmlDocument();
+        static XmlElement xmlcontacts;
+        static string xmlFilePath = Path.GetDirectoryName(Application.ExecutablePath) + @"\DATA.xml";
+        static  XmlHandler()
         {
             if (File.Exists(xmlFilePath))
             {
@@ -27,9 +27,9 @@ namespace Encrypted_messager
 
         }
 
-        public void WriteContactToXML(string name, string email, string confidence, string pubkey)
+        public static void WriteContactToXML(string name, string email, string confidence, string pubkey)
         {
-            XmlElement contact = (XmlElement)xmlcontacts.AppendChild(xmldoc.CreateElement("Contact"));
+            XmlElement contact = (XmlElement) xmlcontacts.AppendChild(xmldoc.CreateElement("Contact"));
             contact.SetAttribute("name", name);
             contact.SetAttribute("email", email);
             contact.SetAttribute("confidence", confidence);
@@ -37,7 +37,7 @@ namespace Encrypted_messager
             xmldoc.Save(xmlFilePath);
         }
 
-        public BindingList<Contact> LoadContactsFromXML()
+        public static BindingList<Contact> LoadContactsFromXML()
         {
             BindingList<Contact> list = new BindingList<Contact>();
             XmlNodeList contactNodes = xmldoc.GetElementsByTagName("Contact");
@@ -59,14 +59,21 @@ namespace Encrypted_messager
 
         }
 
-        public void DeleteContact(string ContactToRemove)
+        public static void DeleteContact(string ContactToRemove)
         {
-            XmlNode xmlnode = xmldoc.GetElementsByTagName("Contacts")[0];
-            xmlnode.RemoveChild(xmlnode.SelectSingleNode("Contact[@name = '" + ContactToRemove + "']"));
-            xmldoc.Save(xmlFilePath);
+            try
+            {
 
-            MessageBox.Show("Contact deleted");
-            
+                XmlNode xmlnode = xmldoc.GetElementsByTagName("Contacts")[0];
+                xmlnode.RemoveChild(xmlnode.SelectSingleNode("Contact[@name = '" + ContactToRemove + "']"));
+                xmldoc.Save(xmlFilePath);
+
+                MessageBox.Show("Contact deleted");
+            }
+            catch
+            {
+                throw new XmlException();
+            }
         }
     }
 }

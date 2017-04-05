@@ -50,14 +50,14 @@
             this.infoLabel.AutoSize = true;
             this.infoLabel.Location = new System.Drawing.Point(12, 9);
             this.infoLabel.Name = "infoLabel";
-            this.infoLabel.Size = new System.Drawing.Size(914, 552);
+            this.infoLabel.Size = new System.Drawing.Size(914, 529);
             this.infoLabel.TabIndex = 1;
             this.infoLabel.Text = resources.GetString("infoLabel.Text");
             // 
             // linkToGithub
             // 
             this.linkToGithub.AutoSize = true;
-            this.linkToGithub.Location = new System.Drawing.Point(486, 584);
+            this.linkToGithub.Location = new System.Drawing.Point(467, 584);
             this.linkToGithub.Name = "linkToGithub";
             this.linkToGithub.Size = new System.Drawing.Size(159, 23);
             this.linkToGithub.TabIndex = 2;
@@ -69,7 +69,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(922, 616);
+            this.ClientSize = new System.Drawing.Size(1041, 616);
             this.Controls.Add(this.linkToGithub);
             this.Controls.Add(this.infoLabel);
             this.Controls.Add(this.linkToTwitter);

@@ -7,7 +7,6 @@ namespace Encrypted_messager
 {
     public partial class ContactsManagerWindow : Form
     {
-        ContactList contactsList = new ContactList();
         public ContactsManagerWindow()
         {
             InitializeComponent();
@@ -15,7 +14,7 @@ namespace Encrypted_messager
 
         private void ContactsManagerWindow_Load(object sender, EventArgs e)
         {
-            contactList.DataSource = contactsList.contacts.Select(contacts => contacts.name).ToList();
+            contactList.DataSource = ContactList.ReturnList().Select(contacts => (contacts.name + " (" + contacts.email + ")")).ToList();
         }
 
         private void addContact_Click(object sender, EventArgs e)
@@ -37,16 +36,22 @@ namespace Encrypted_messager
 
         private void RefreshList()
         {
-            contactList.DataSource = contactsList.contacts.Select(contacts => contacts.name).ToList();
+            contactList.DataSource = ContactList.ReturnList().Select(contacts => contacts.name).ToList();
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Are you sure you want to remove the selected contact?", "Remove contact", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (contactList.SelectedItem != null)
             {
-                XmlHandler xmlhandler = new XmlHandler();
-                xmlhandler.DeleteContact(contactList.SelectedItem.ToString());
-
+                if (MessageBox.Show("Are you sure you want to remove the selected contact?", "Remove contact", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    XmlHandler.DeleteContact(ContactList.ReturnList().Select(contacts => contacts.name).ToList()[contactList.SelectedIndex]);
+                    contactList.DataSource = ContactList.ReturnList().Select(contacts => contacts.name).ToList();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a contact");
             }
         }
     }

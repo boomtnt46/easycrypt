@@ -71,7 +71,7 @@ namespace Encrypted_messager
         public static void GenerateKey(string username, string password, string keyStoreUrl)
         {
             IAsymmetricCipherKeyPairGenerator kpg = new RsaKeyPairGenerator();
-            kpg.Init(new RsaKeyGenerationParameters(BigInteger.ValueOf(new SecureRandom().Next()), new SecureRandom(), 4096, 8));
+            kpg.Init(new RsaKeyGenerationParameters(BigInteger.ValueOf(new SecureRandom().Next(1,999)), new SecureRandom(), 4096, 8));
             AsymmetricCipherKeyPair kp = kpg.GenerateKeyPair();
 
             FileStream out1 = new FileInfo(string.Format("{0}secret.asc", keyStoreUrl)).OpenWrite();

@@ -17,16 +17,26 @@ namespace Encrypted_messager
         public CreateKeys()
         {
             InitializeComponent();
+            this.TopMost = true;
+            MessageBox.Show("It seems that this is the first run. Please create a pair of keys. Fill the form to continue.");
         }
 
         private void CreateKeys_Load(object sender, EventArgs e)
         {
-            GnuPGConfig.GnuPGExePath = (new MainScreen()).path;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Keys.GenerateKeys(textBox1.Text, textBox3.Text);
+            if (passwordTextBox.Text == repeatPassowrdTextBox.Text)
+            {
+                Keys.GenerateKeys(textBox1.Text, passwordTextBox.Text);
+            }
+            else
+            {
+                MessageBox.Show("Please enter the same password in the tho boxes", "Password mismatch", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+
         }
 
         public void textBox1_TextChanged(object sender, EventArgs e)
@@ -35,6 +45,11 @@ namespace Encrypted_messager
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void repeatPassowrdTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -54,7 +69,7 @@ namespace Encrypted_messager
         public static void GenerateKey(string username, string password, string keyStoreUrl)
         {
             IAsymmetricCipherKeyPairGenerator kpg = new RsaKeyPairGenerator();
-            kpg.Init(new RsaKeyGenerationParameters(new BigInteger((new SecureRandom()).Next(0, Int32.MaxValue).ToString()), new SecureRandom(), 4096, 20));
+            kpg.Init(new RsaKeyGenerationParameters(new BigInteger((new SecureRandom()).Next(0, Int32.MaxValue).ToString()), new SecureRandom(), 2048, 8));
             AsymmetricCipherKeyPair kp = kpg.GenerateKeyPair();
 
             FileStream out1 = new FileInfo(string.Format("{0}secret.asc", keyStoreUrl)).OpenWrite();

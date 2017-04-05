@@ -1,5 +1,4 @@
 ﻿using System;
-using PgpSharp.GnuPG;
 using System.Windows.Forms;
 using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Parameters;
@@ -61,8 +60,6 @@ namespace Encrypted_messager
     {
         public static void GenerateKeys(string fullname, string password)
         {
-            GnuPGTool pgpsharp = new GnuPGTool();
-            pgpsharp.KeyringFolder = Environment.CurrentDirectory + @"\Keys\";
             Directory.CreateDirectory(Environment.CurrentDirectory + @"\Keys\");
             GenerateKey(fullname, password, Environment.CurrentDirectory + @"\Keys\");
 

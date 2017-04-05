@@ -10,12 +10,9 @@ namespace Encrypted_messager
     {
         static XmlDocument xmldoc = new XmlDocument();
         static XmlElement xmlcontacts;
-        static string xmlFilePath = @Path.GetDirectoryName(Application.ExecutablePath) + @"\DATA.xml";
+        static string xmlFilePath = Path.GetDirectoryName(Application.ExecutablePath) + @"\DATA.xml";
         static  XmlHandler()
         {
-            XmlDocument xmldoc = new XmlDocument();
-            string xmlFilePath = @Path.GetDirectoryName(Application.ExecutablePath) + @"\DATA.xml";
-
             if (File.Exists(xmlFilePath))
             {
                 xmldoc.Load(xmlFilePath);
@@ -31,7 +28,7 @@ namespace Encrypted_messager
 
         public static void WriteContactToXML(string name, string email, string confidence, string pubkey)
         {
-            XmlElement contact = (XmlElement)xmlcontacts.AppendChild(xmldoc.CreateElement("Contact"));
+            XmlElement contact = (XmlElement) xmlcontacts.AppendChild(xmldoc.CreateElement("Contact"));
             contact.SetAttribute("name", name);
             contact.SetAttribute("email", email);
             contact.SetAttribute("confidence", confidence);

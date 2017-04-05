@@ -26,7 +26,7 @@ namespace Encrypted_messager
 
         public void contactList_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            RefreshList();
         }
 
         private void exitButton_Click(object sender, EventArgs e)

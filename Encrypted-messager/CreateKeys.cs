@@ -98,7 +98,7 @@ namespace Encrypted_messager
                 privateKey,
                 DateTime.Now,
                 identity,
-                SymmetricKeyAlgorithmTag.Aes256,
+                SymmetricKeyAlgorithmTag.Cast5,
                 passPhrase,
                 null,
                 null,

@@ -106,7 +106,7 @@
             this.contactListSelection.Name = "contactListSelection";
             this.contactListSelection.Size = new System.Drawing.Size(214, 31);
             this.contactListSelection.TabIndex = 5;
-            this.contactListSelection.SelectedIndexChanged += new System.EventHandler(this.contactListSelection_SelectedIndexChanged);
+            this.contactListSelection.DropDown += new System.EventHandler(this.contactListSelection_DropDown);
             // 
             // settingsButton
             // 

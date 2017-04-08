@@ -16,7 +16,6 @@ namespace Encrypted_messager
         public CreateKeys()
         {
             InitializeComponent();
-            this.ControlBox = false;
             MessageBox.Show("It seems that this is the first run. Please create a pair of keys. Fill the form to continue.");
         }
 

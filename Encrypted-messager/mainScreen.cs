@@ -31,7 +31,6 @@ namespace Encrypted_messager
                 //StreamReader sr = new StreamReader("settings.dat", Encoding.UTF8);
                 //@path = sr.ReadLine().Substring(12);
             }
-            
 
         }
 
@@ -39,6 +38,7 @@ namespace Encrypted_messager
         {
             //load contact list for main form
             contactListSelection.DataSource = ContactList.ReturnList().Select(contacts => (contacts.name + " (" + contacts.email + ")")).ToList();
+
         }
 
         private void contacts_Click(object sender, EventArgs e)
@@ -91,9 +91,10 @@ namespace Encrypted_messager
 
         }
 
-        private void contactListSelection_SelectedIndexChanged(object sender, EventArgs e)
+        private void contactListSelection_DropDown(object sender, EventArgs e)
         {
             contactListSelection.DataSource = ContactList.ReturnList().Select(contacts => (contacts.name + " (" + contacts.email + ")")).ToList();
         }
+
     }
 }

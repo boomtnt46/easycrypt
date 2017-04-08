@@ -89,6 +89,12 @@
     <Compile Include="CreateKeys.Designer.cs">
       <DependentUpon>CreateKeys.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditContact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditContact.Designer.cs">
+      <DependentUpon>EditContact.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="mainScreen.cs">
@@ -112,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreateKeys.resx">
       <DependentUpon>CreateKeys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditContact.resx">
+      <DependentUpon>EditContact.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mainScreen.resx">
       <DependentUpon>mainScreen.cs</DependentUpon>

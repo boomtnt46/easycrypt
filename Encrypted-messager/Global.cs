@@ -16,12 +16,6 @@ namespace Encrypted_messager
                 public string publicKey { get; set; }
             }
 
-            public class Confidence
-            {
-                public string low => "low";
-                public string medium => "medium";
-                public string high => "high";
-            }
         }
 
         public static class ContactList
@@ -30,17 +24,11 @@ namespace Encrypted_messager
 
             public static BindingList<Contact> ReturnList()
             {
-                ReloadList();
+                contacts = XmlHandler.LoadContactsFromXML();
                 return contacts;
             }
 
-            
             static ContactList()
-            {
-                contacts = XmlHandler.LoadContactsFromXML();
-            }
-
-            public static void ReloadList()
             {
                 contacts = XmlHandler.LoadContactsFromXML();
             }

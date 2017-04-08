@@ -71,9 +71,14 @@ namespace Encrypted_messager
         public static void EditContact(string originalName, XmlElement editedNode)
         {
             XmlNode xmlnode = xmldoc.GetElementsByTagName("Contacts")[0];
+            if (xmlnode.SelectSingleNode("Contact[@name = '" + originalName + "']") == editedNode)
+            {
+                MessageBox.Show("The contact has not been edited because no info was changed", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             xmlcontacts.ReplaceChild(editedNode, xmlnode.SelectSingleNode("Contact[@name = '" + originalName + "']"));
             xmldoc.Save(xmlFilePath);
-            MessageBox.Show("Contact edited sucdesfully", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Contact edited succesfully", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

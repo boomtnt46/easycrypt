@@ -38,6 +38,7 @@
             this.confidenceList = new System.Windows.Forms.ComboBox();
             this.selectPublicKey = new System.Windows.Forms.Button();
             this.filenameOfSelectedFile = new System.Windows.Forms.Label();
+            this.confidenceOld = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // acceptButton
@@ -141,6 +142,14 @@
             this.filenameOfSelectedFile.Text = "No file selected";
             this.filenameOfSelectedFile.Click += new System.EventHandler(this.filenameOfSelectedFile_Click);
             // 
+            // confidenceOld
+            // 
+            this.confidenceOld.AutoSize = true;
+            this.confidenceOld.Location = new System.Drawing.Point(259, 84);
+            this.confidenceOld.Name = "confidenceOld";
+            this.confidenceOld.Size = new System.Drawing.Size(0, 23);
+            this.confidenceOld.TabIndex = 12;
+            // 
             // EditContact
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
@@ -148,6 +157,7 @@
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(457, 191);
             this.ControlBox = false;
+            this.Controls.Add(this.confidenceOld);
             this.Controls.Add(this.filenameOfSelectedFile);
             this.Controls.Add(this.selectPublicKey);
             this.Controls.Add(this.confidenceList);
@@ -179,5 +189,6 @@
         private System.Windows.Forms.ComboBox confidenceList;
         private System.Windows.Forms.Button selectPublicKey;
         private System.Windows.Forms.Label filenameOfSelectedFile;
+        private System.Windows.Forms.Label confidenceOld;
     }
 }

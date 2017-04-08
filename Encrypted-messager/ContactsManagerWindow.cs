@@ -51,7 +51,8 @@ namespace Encrypted_messager
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            new EditContact(ContactList.contacts[contactList.SelectedIndex]).Show();
+            new EditContact(ContactList.contacts[contactList.SelectedIndex]).ShowDialog();
+            contactList.DataSource = ContactList.ReturnList().Select(contacts => (contacts.name + " (" + contacts.email + ")")).ToList();
         }
     }
 

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.foreignMessage = new System.Windows.Forms.TextBox();
+            this.textToSend = new System.Windows.Forms.TextBox();
             this.receivedMessage = new System.Windows.Forms.TextBox();
             this.contactsButton = new System.Windows.Forms.Button();
             this.decryptButton = new System.Windows.Forms.Button();
@@ -40,16 +40,16 @@
             this.aboutButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // foreignMessage
+            // textToSend
             // 
-            this.foreignMessage.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.foreignMessage.Location = new System.Drawing.Point(1155, 54);
-            this.foreignMessage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.foreignMessage.Multiline = true;
-            this.foreignMessage.Name = "foreignMessage";
-            this.foreignMessage.Size = new System.Drawing.Size(894, 1002);
-            this.foreignMessage.TabIndex = 0;
-            this.foreignMessage.TextChanged += new System.EventHandler(this.foreignMessage_TextChanged);
+            this.textToSend.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textToSend.Location = new System.Drawing.Point(1155, 54);
+            this.textToSend.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textToSend.Multiline = true;
+            this.textToSend.Name = "textToSend";
+            this.textToSend.Size = new System.Drawing.Size(894, 1002);
+            this.textToSend.TabIndex = 0;
+            this.textToSend.TextChanged += new System.EventHandler(this.textToSend_TextChanged);
             // 
             // receivedMessage
             // 
@@ -171,7 +171,7 @@
             this.Controls.Add(this.decryptButton);
             this.Controls.Add(this.contactsButton);
             this.Controls.Add(this.receivedMessage);
-            this.Controls.Add(this.foreignMessage);
+            this.Controls.Add(this.textToSend);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -186,7 +186,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox foreignMessage;
+        private System.Windows.Forms.TextBox textToSend;
         private System.Windows.Forms.TextBox receivedMessage;
         private System.Windows.Forms.Button contactsButton;
         private System.Windows.Forms.Button decryptButton;

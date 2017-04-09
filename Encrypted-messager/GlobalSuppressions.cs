@@ -6,4 +6,5 @@
 
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Estilo", "IDE1006:Estilos de nombres", Justification = "<Pendiente>", Scope = "member", Target = "~M:Encrypted_messager.MainScreen.decryptButton_Click(System.Object,System.EventArgs)")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Estilo", "IDE1006:Estilos de nombres", Justification = "<Pendiente>", Scope = "member", Target = "~M:Encrypted_messager.MainScreen.button1_Click(System.Object,System.EventArgs)")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1016:MarkAssembliesWithAssemblyVersion")]
 

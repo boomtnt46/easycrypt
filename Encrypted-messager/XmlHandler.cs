@@ -9,8 +9,8 @@ namespace Encrypted_messager
 {
     public static class XmlHandler
     {
-        static XmlDocument xmldoc = new XmlDocument();
-        static XmlElement xmlcontacts;
+        public static XmlDocument xmldoc = new XmlDocument();
+        public static XmlElement xmlcontacts;
         static string xmlFilePath = Path.GetDirectoryName(Application.ExecutablePath) + @"\DATA.xml";
         static  XmlHandler()
         {
@@ -61,19 +61,24 @@ namespace Encrypted_messager
 
         public static void DeleteContact(string ContactToRemove)
         {
-            try
-            {
-
                 XmlNode xmlnode = xmldoc.GetElementsByTagName("Contacts")[0];
                 xmlnode.RemoveChild(xmlnode.SelectSingleNode("Contact[@name = '" + ContactToRemove + "']"));
                 xmldoc.Save(xmlFilePath);
 
                 MessageBox.Show("Contact deleted");
-            }
-            catch
+        }
+
+        public static void EditContact(string originalName, XmlElement editedNode)
+        {
+            XmlNode xmlnode = xmldoc.GetElementsByTagName("Contacts")[0];
+            if (xmlnode.SelectSingleNode("Contact[@name = '" + originalName + "']") == editedNode)
             {
-                throw new XmlException();
+                MessageBox.Show("The contact has not been edited because no info was changed", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
+            xmlcontacts.ReplaceChild(editedNode, xmlnode.SelectSingleNode("Contact[@name = '" + originalName + "']"));
+            xmldoc.Save(xmlFilePath);
+            MessageBox.Show("Contact edited succesfully", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

@@ -99,9 +99,11 @@
             // 
             this.confidence.FormattingEnabled = true;
             this.confidence.Items.AddRange(new object[] {
+            "None",
             "Low",
             "Medium",
-            "High"});
+            "High",
+            "Total Trust"});
             this.confidence.Location = new System.Drawing.Point(132, 102);
             this.confidence.Name = "confidence";
             this.confidence.Size = new System.Drawing.Size(121, 31);

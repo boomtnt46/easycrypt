@@ -16,7 +16,6 @@ namespace Encrypted_messager
         public CreateKeys()
         {
             InitializeComponent();
-            this.ControlBox = false;
             MessageBox.Show("It seems that this is the first run. Please create a pair of keys. Fill the form to continue.");
         }
 
@@ -99,7 +98,7 @@ namespace Encrypted_messager
                 privateKey,
                 DateTime.Now,
                 identity,
-                SymmetricKeyAlgorithmTag.Aes256,
+                SymmetricKeyAlgorithmTag.Cast5,
                 passPhrase,
                 null,
                 null,

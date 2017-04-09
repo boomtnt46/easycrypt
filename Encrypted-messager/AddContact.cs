@@ -44,7 +44,7 @@ namespace Encrypted_messager
         private void selectPublicKey_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "txt files (*.txt)|*.txt|pgp files (*.pgp)|*.pgp|asc files (*.asc)|*.asc|any file|*.*";
+            ofd.Filter = "asc files (*.asc)|*.asc|pgp files (*.pgp)|*.pgp|txt files (*.txt)|*.txt|any file|*.*";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 if (ofd.OpenFile() != null)

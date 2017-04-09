@@ -1,9 +1,16 @@
 ﻿using System;
 using System.Linq;
 using System.IO;
+using Org.BouncyCastle.Bcpg;
+using Org.BouncyCastle.Bcpg.OpenPgp;
 using System.Windows.Forms;
 using System.Text;
 using static Encrypted_messager.Global;
+using static Encrypted_messager.PGP;
+using Org.BouncyCastle.X509;
+using Org.BouncyCastle.Utilities.Encoders;
+using System.Security.Cryptography;
+using Org.BouncyCastle.Security;
 
 namespace Encrypted_messager
 {
@@ -78,7 +85,12 @@ namespace Encrypted_messager
 
         private void encryptButton_Click(object sender, EventArgs e)
         {
+            byte[] byteString = Encoding.ASCII.GetBytes(textToSend.Text);
+            Stream st = new MemoryStream(byteString);
 
+            //ContactList.ReturnList()[contactListSelection.SelectedIndex].publicKey;
+
+            //EncryptFile(st, ("temp" + DateTime.Now.Millisecond), pk, true, true);
         }
 
         public void receivedMessage_TextChanged(object sender, EventArgs e)
@@ -86,7 +98,7 @@ namespace Encrypted_messager
 
         }
 
-        private void foreignMessage_TextChanged(object sender, EventArgs e)
+        private void textToSend_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -95,6 +107,5 @@ namespace Encrypted_messager
         {
             contactListSelection.DataSource = ContactList.ReturnList().Select(contacts => (contacts.name + " (" + contacts.email + ")")).ToList();
         }
-
     }
 }
